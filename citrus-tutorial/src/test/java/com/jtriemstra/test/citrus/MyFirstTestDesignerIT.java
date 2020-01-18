@@ -14,4 +14,14 @@ public class MyFirstTestDesignerIT extends TestNGCitrusTestDesigner {
 
         echo("${text}");
     }
+    
+    @CitrusTest(name = "MyFirstTest println")
+    public void myFirstTestPrintln() {
+        description("First example showing the basic test case definition elements!");
+        echo("Starting test");
+        
+        variable("text", "Hello Test Framework");
+        System.out.println("Dumping something to command line");
+        echo("${text}");
+    }
 }
