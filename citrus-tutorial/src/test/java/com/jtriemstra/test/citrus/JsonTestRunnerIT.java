@@ -38,10 +38,13 @@ public class JsonTestRunnerIT extends TestNGCitrusTestRunner  {
             .receive()
             .response(HttpStatus.OK)
             .messageType(MessageType.JSON)
+            .validate("$.date", "01-18-2020")
+            .validate("$.time", "@ignore(11)@")
+            .validate("$.milliseconds_since_epoch", "@ignore@"));
             //.xpath("//xh:h1", "TODO list")
-            .payload("{\"date\": \"@ignore(10)@\",\r\n" + 
+            /*.payload("{\"date\": \"@ignore(10)@\",\r\n" + 
             		"   \"milliseconds_since_epoch\": @ignore@,\r\n" + 
-            		"   \"time\": \"@ignore(11)@\"}"));
+            		"   \"time\": \"@ignore(11)@\"}"));*/
     }
 
     /*@Bean
