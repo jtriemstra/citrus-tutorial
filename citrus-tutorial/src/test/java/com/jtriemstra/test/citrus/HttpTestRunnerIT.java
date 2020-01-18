@@ -47,12 +47,12 @@ public class HttpTestRunnerIT extends TestNGCitrusTestRunner  {
                     "</html>"));
     }
 
-    @Bean
+    /*@Bean
     public HttpClient exampleClient() {
         return CitrusEndpoints
             .http()
                 .client()
                 .requestUrl("http://www.example.com")
             .build();
-    }
+    }*/
 }
