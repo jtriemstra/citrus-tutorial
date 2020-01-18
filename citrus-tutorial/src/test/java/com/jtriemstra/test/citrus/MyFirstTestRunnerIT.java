@@ -2,10 +2,14 @@ package com.jtriemstra.test.citrus;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.testng.annotations.Test;
 import com.consol.citrus.annotations.CitrusTest;
-import com.consol.citrus.dsl.testng.TestNGCitrusTestDesigner;
 import com.consol.citrus.dsl.testng.TestNGCitrusTestRunner;
+import com.consol.citrus.http.client.HttpClient;
+import com.consol.citrus.message.MessageType;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.testng.annotations.Test;
 
 @Test
 public class MyFirstTestRunnerIT extends TestNGCitrusTestRunner  {
