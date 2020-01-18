@@ -7,16 +7,13 @@
        xmlns:citrus-http="http://www.citrusframework.org/schema/http/config"
        xmlns:citrus-test="http://www.citrusframework.org/schema/testcase"
        xmlns:context="http://www.springframework.org/schema/context"
-       xmlns:http="http://www.citrusframework.org/schema/http/testcase"
-        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
        http://www.citrusframework.org/schema/config http://www.citrusframework.org/schema/config/citrus-config.xsd
        http://www.citrusframework.org/schema/jms/config http://www.citrusframework.org/schema/jms/config/citrus-jms-config.xsd
        http://www.citrusframework.org/schema/ws/config http://www.citrusframework.org/schema/ws/config/citrus-ws-config.xsd
        http://www.citrusframework.org/schema/http/config http://www.citrusframework.org/schema/http/config/citrus-http-config.xsd
-       http://www.citrusframework.org/schema/testcase http://www.citrusframework.org/schema/testcase/citrus-testcase.xsd
-        http://www.citrusframework.org/schema/http/testcase
-        http://www.citrusframework.org/schema/http/testcase/citrus-http-testcase.xsd">
+       http://www.citrusframework.org/schema/testcase http://www.citrusframework.org/schema/testcase/citrus-testcase.xsd">
 	
     <!-- Common settings -->
     <context:property-placeholder location="classpath:citrus.properties"/>
@@ -27,33 +24,4 @@
         <citrus:variable name="project.name" value="Citrus Integration Tests"/>
     </citrus:global-variables>
     	
-    
-
-
-
-
-
-<http:send-request client="httpClient">
-  <http:POST path="/customer">
-    <http:headers content-type="application/xml" accept="application/xml, */*">
-      <http:header name="X-CustomHeaderId" value="${custom_header_id}"/>
-    </http:headers>
-    <http:body>
-      <http:data>
-        <![CDATA[
-          <customer>
-            <id>citrus:randomNumber()</id>
-            <name>testuser</name>
-          </customer>
-        ]]>
-      </http:data>
-    </http:body>
-  </http:POST>
-</http:send-request>
-
-
-
-
-
-    
 </beans>
