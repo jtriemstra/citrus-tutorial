@@ -5,7 +5,7 @@ import com.consol.citrus.annotations.CitrusTest;
 import com.consol.citrus.dsl.testng.TestNGCitrusTestDesigner;
 
 @Test
-public class MyFirstTestDesigner extends TestNGCitrusTestDesigner {
+public class MyFirstTestDesignerIT extends TestNGCitrusTestDesigner {
     @CitrusTest(name = "MyFirstTest")
     public void myFirstTest() {
         description("First example showing the basic test case definition elements!");
