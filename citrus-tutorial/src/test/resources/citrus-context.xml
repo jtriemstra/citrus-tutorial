@@ -33,4 +33,19 @@
 	    default-accept-header="false"/>
 
     
+
+<send endpoint="helloHttpClient">
+    <message>
+        <payload>
+            <TestMessage>
+                <Text>Hello HttpServer</Text>
+            </TestMessage>
+        </payload>
+    </message>
+    <header>
+        <element name="citrus_http_method" value="POST"/>
+    </header>
+</send>
+
+    
 </beans>
