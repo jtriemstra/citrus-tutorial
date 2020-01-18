@@ -26,26 +26,38 @@
     	
     
 
-	<citrus-http:client id="helloHttpClient"
-	    request-url="http://localhost:8080/hello"
-	    request-method="GET"
-	    content-type="text/plain"
-	    default-accept-header="false"/>
 
-    
 
-<send endpoint="helloHttpClient">
-    <message>
-        <payload>
-            <TestMessage>
-                <Text>Hello HttpServer</Text>
-            </TestMessage>
-        </payload>
-    </message>
-    <header>
-        <element name="citrus_http_method" value="POST"/>
-    </header>
-</send>
+<citrus-http:client id="helloHttpClient"
+                   request-url="http://localhost:8080/hello"
+                   request-method="GET"
+                   content-type="text/plain"
+                   rest-template="customizedRestTemplate"/>
+
+<!-- Customized rest template -->
+<bean name="customizedRestTemplate" class="org.springframework.web.client.RestTemplate">
+  <property name="messageConverters">
+    <util:list id="converter">
+      <bean class="org.springframework.http.converter.StringHttpMessageConverter">
+        <property name="supportedMediaTypes">
+          <util:list id="types">
+            <value>text/plain</value>
+          </util:list>
+        </property>
+      </bean>
+    </util:list>
+  </property>
+  <property name="errorHandler">
+    <!-- Custom error handler -->
+  </property>
+  <property name="requestFactory">
+    <bean class="org.springframework.http.client.HttpComponentsClientHttpRequestFactory">
+      <property name="readTimeout" value="9000" />
+    </bean>
+  </property>
+</bean>
+
+
 
     
 </beans>
