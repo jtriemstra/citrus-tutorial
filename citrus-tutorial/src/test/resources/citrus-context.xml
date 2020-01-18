@@ -23,8 +23,6 @@
     <citrus:global-variables>
         <citrus:variable name="project.name" value="Citrus Integration Tests"/>
     </citrus:global-variables>
-    	
-    
 
 	<citrus-http:client id="exampleClient"
           request-url="http://www.example.com"
@@ -33,5 +31,10 @@
           charset="UTF-8"
           timeout="60000"/>
 
-    	
+    <citrus-http:client id="jsonClient"
+          request-url="http://date.jsontest.com"
+          request-method="GET"
+          content-type="application/json"
+          charset="UTF-8"
+          timeout="60000"/>
 </beans>
